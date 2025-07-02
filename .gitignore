@@ -1,39 +1,24 @@
-# Intellij
-*.iml
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
 *.ipr
 *.iws
-
-# Generated java classes
-out
-classes
-
-# Vim
-*.swp
-
-# Plugins
-*.idea/checkstyle-idea.xml
-
-# Gradle
-.gradle/
-build/
-
-# Some files are user/installation independent and are used for configuring the IDE
-# See also https://stackoverflow.com/a/35279076
-
+*.iml
 .idea/*
-!.idea/saveactions_settings.xml
-!.idea/checkstyle-idea.xml
-!.idea/externalDependencies.xml
+!.idea/scopes
 
-!.idea/inspectionProfiles/
-.idea/inspectionProfiles/*
-!.idea/inspectionProfiles/Project_Default.xml
+# gradle
+build
+.gradle
 
-!.idea/codeStyles/
-.idea/codeStyles/*
-!.idea/codeStyles/codeStyleConfig.xml
-!.idea/codeStyles/Project.xml
-
-# Custom
-run/
-out/
+# other
+eclipse
+run
+runs
