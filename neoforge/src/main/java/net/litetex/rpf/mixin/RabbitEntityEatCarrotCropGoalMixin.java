@@ -52,8 +52,13 @@ public abstract class RabbitEntityEatCarrotCropGoalMixin extends MoveToBlockGoal
 	)
 	public void tickSuperRedirect(final MoveToBlockGoal instance)
 	{
+<<<<<<< HEAD:neoforge/src/main/java/net/litetex/rpf/mixin/RabbitEntityEatCarrotCropGoalMixin.java
 		final BlockPos blockPos = this.getMoveToTarget();
 		if(!blockPos.closerToCenterThan(this.mob.position(), this.acceptedDistance()))
+=======
+		final BlockPos blockPos = this.getTargetPos();
+		if(!blockPos.isWithinDistance(this.mob.getEntityPos(), this.getDesiredDistanceToTarget()))
+>>>>>>> 299d70aca6267f178694b66dfa21c85c3f000015:src/main/java/net/litetex/rpf/mixin/RabbitEntityEatCarrotCropGoalMixin.java
 		{
 			this.reachedTarget = false;
 			this.tryTicks++;
@@ -81,7 +86,11 @@ public abstract class RabbitEntityEatCarrotCropGoalMixin extends MoveToBlockGoal
 		method = "tick",
 		at = @At(
 			value = "INVOKE",
+<<<<<<< HEAD:neoforge/src/main/java/net/litetex/rpf/mixin/RabbitEntityEatCarrotCropGoalMixin.java
 			target = "Lnet/minecraft/world/entity/animal/Rabbit;level()Lnet/minecraft/world/level/Level;"
+=======
+			target = "Lnet/minecraft/entity/passive/RabbitEntity;getEntityWorld()Lnet/minecraft/world/World;"
+>>>>>>> 299d70aca6267f178694b66dfa21c85c3f000015:src/main/java/net/litetex/rpf/mixin/RabbitEntityEatCarrotCropGoalMixin.java
 		),
 		cancellable = true
 	)
