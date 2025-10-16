@@ -1,11 +1,6 @@
-# Disclaimer
-
-This is a fork of the [Rabbit Pathfinding Fixed](https://modrinth.com/mod/rabbit-pathfinding-fix). I do not claim ownership of the original code or assets nor changing any of the code logic. All credit goes to the litetex. I just made a port for Forge and NeoForge.
-
 <!-- modrinth_exclude.start -->
 
-[![Fabric](https://img.shields.io/modrinth/v/MCMPNRD8)](https://modrinth.com/mod/rabbit-pathfinding-fix)
-[![Forge ecosystem](https://img.shields.io/modrinth/v/MCMPNRD8)](https://modrinth.com/project/rabbit-pathfinding-fixed-(unofficial-forge-port))
+[![Version](https://img.shields.io/modrinth/v/MCMPNRD8)](https://modrinth.com/mod/rabbit-pathfinding-fix)
 [![Build](https://img.shields.io/github/actions/workflow/status/litetex-oss/mcm-rabbit-pathfinding-fix/check-build.yml?branch=dev)](https://github.com/litetex-oss/mcm-rabbit-pathfinding-fix/actions/workflows/check-build.yml?query=branch%3Adev)
 
 # Rabbit Pathfinding Fixed
@@ -36,3 +31,27 @@ As of 1.21.1 there are multiple problems with rabbit pathfinding:
 
 
 Detailed [video comparisons](https://litetex-oss.github.io/mcm-rabbit-pathfinding-fix/assets/comparison) are also available.
+
+<!-- modrinth_exclude.start -->
+
+## Installation
+[Installation guide for the latest release](https://github.com/litetex-oss/mcm-rabbit-pathfinding-fix/releases/latest#Installation)
+
+### Usage in other mods
+
+Add the following to ``build.gradle``:
+```groovy
+dependencies {
+    modImplementation 'net.litetex.mcm:rabbit-pathfinding-fix:<version>'
+    // Further documentation: https://wiki.fabricmc.net/documentation:fabric_loom
+}
+```
+
+> [!NOTE]
+> The contents are hosted on [Maven Central](https://repo.maven.apache.org/maven2/net/litetex/mcm/). You shouldn't have to change anything as this is the default maven repo.<br/>
+> If this somehow shouldn't work you can also try [Modrinth Maven](https://support.modrinth.com/en/articles/8801191-modrinth-maven).
+
+## Contributing
+See the [contributing guide](./CONTRIBUTING.md) for detailed instructions on how to get started with our project.
+
+<!-- modrinth_exclude.end -->
