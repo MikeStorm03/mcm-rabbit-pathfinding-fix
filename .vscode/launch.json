@@ -12,14 +12,16 @@
       "projectName": "neoforge",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\clientRunProgramArgs.txt"
+        "@D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\clientRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\clientRunVmArgs.txt",
-        "-Dfml.modFolders\u003drabbit_pathfinding_fix%%D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
+        "@D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003drabbit_pathfinding_fix%%D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\neoforge\\run",
-      "env": {},
+      "env": {
+        "MOD_CLASSES": "rabbit_pathfinding_fix%%D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
+      },
       "console": "internalConsole",
       "shortenCommandLine": "none"
     },
@@ -34,14 +36,16 @@
       "projectName": "neoforge",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\dataRunProgramArgs.txt"
+        "@D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\dataRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\dataRunVmArgs.txt",
-        "-Dfml.modFolders\u003drabbit_pathfinding_fix%%D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
+        "@D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003drabbit_pathfinding_fix%%D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\neoforge\\run",
-      "env": {},
+      "env": {
+        "MOD_CLASSES": "rabbit_pathfinding_fix%%D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
+      },
       "console": "internalConsole",
       "shortenCommandLine": "none"
     },
@@ -56,14 +60,16 @@
       "projectName": "neoforge",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\serverRunProgramArgs.txt"
+        "@D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\serverRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\serverRunVmArgs.txt",
-        "-Dfml.modFolders\u003drabbit_pathfinding_fix%%D:\\Minecraft\\Minecraft Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
+        "@D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003drabbit_pathfinding_fix%%D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\neoforge\\run",
-      "env": {},
+      "env": {
+        "MOD_CLASSES": "rabbit_pathfinding_fix%%D:\\Minecraft\\Stuffs\\mods\\Rabbit Pathfinding Fixed (Unofficial Port)\\neoforge\\bin\\main"
+      },
       "console": "internalConsole",
       "shortenCommandLine": "none"
     }

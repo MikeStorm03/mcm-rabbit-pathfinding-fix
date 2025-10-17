@@ -1,38 +1,31 @@
-# Disclaimer
+# MultiLoader Template
 
-This is a fork of the [Rabbit Pathfinding Fixed](https://modrinth.com/mod/rabbit-pathfinding-fix). I do not claim ownership of the original code or assets nor changing any of the code logic. All credit goes to the litetex. I just made a port for Forge and NeoForge.
+This project provides a Gradle project template that can compile mods for both Forge and Fabric using a common sourceset. This project does not require any third party libraries or dependencies. If you have any questions or want to discuss the project join our [Discord](https://discord.myceliummod.network).
 
-<!-- modrinth_exclude.start -->
+## Getting Started
 
-[![Fabric](https://img.shields.io/modrinth/v/MCMPNRD8)](https://modrinth.com/mod/rabbit-pathfinding-fix)
-[![Forge ecosystem](https://img.shields.io/modrinth/v/MCMPNRD8)](https://modrinth.com/project/rabbit-pathfinding-fixed-(unofficial-forge-port))
-[![Build](https://img.shields.io/github/actions/workflow/status/litetex-oss/mcm-rabbit-pathfinding-fix/check-build.yml?branch=dev)](https://github.com/litetex-oss/mcm-rabbit-pathfinding-fix/actions/workflows/check-build.yml?query=branch%3Adev)
+### IntelliJ IDEA
+This guide will show how to import the MultiLoader Template into IntelliJ IDEA. The setup process is roughly equivalent to setting up Forge and Fabric independently and should be very familiar to anyone who has worked with their MDKs.
 
-# Rabbit Pathfinding Fixed
+1. Clone or download this repository to your computer.
+2. Configure the project by editing the `group`, `mod_name`, `mod_author`, and `mod_id` properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`, this should match the folder name of your project, or else IDEA may complain.
+3. Open the template's root folder as a new project in IDEA. This is the folder that contains this README file and the gradlew executable.
+4. If your default JVM/JDK is not Java 17 you will encounter an error when opening the project. This error is fixed by going to `File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`and changing the value to a valid Java 17 JVM. You will also need to set the Project SDK to Java 17. This can be done by going to `File > Project Structure > Project SDK`. Once both have been set open the Gradle tab in IDEA and click the refresh button to reload the project.
+5. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Common > Tasks > vanilla gradle > decompile`. Run this task to decompile Minecraft.
+6. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Forge > Tasks > forgegradle runs > genIntellijRuns`. Run this task to set up run configurations for Forge.
+7. Open your Run/Debug Configurations. Under the Application category there should now be options to run Forge and Fabric projects. Select one of the client options and try to run it.
+8. Assuming you were able to run the game in step 7 your workspace should now be set up.
 
-<!-- modrinth_exclude.end -->
+### Eclipse
+While it is possible to use this template in Eclipse it is not recommended. During the development of this template multiple critical bugs and quirks related to Eclipse were found at nearly every level of the required build tools. While we continue to work with these tools to report and resolve issues support for projects like these are not there yet. For now Eclipse is considered unsupported by this project. The development cycle for build tools is notoriously slow so there are no ETAs available.
 
-Fixes rabbit pathfinding efficiently.
+## Development Guide
+When using this template the majority of your mod is developed in the Common project. The Common project is compiled against the vanilla game and is used to hold code that is shared between the different loader-specific versions of your mod. The Common project has no knowledge or access to ModLoader specific code, apis, or concepts. Code that requires something from a specific loader must be done through the project that is specific to that loader, such as the Forge or Fabric project.
 
-As of 1.21.1 there are multiple problems with rabbit pathfinding:
+Loader specific projects such as the Forge and Fabric project are used to load the Common project into the game. These projects also define code that is specific to that loader. Loader specific projects can access all of the code in the Common project. It is important to remember that the Common project can not access code from loader specific projects.
 
-### Basic pathfinding
-1. The calculation of the jump height/velocity is incorrect and poorly implemented.<br/>This results in too small jumps for climbing over a block.
-2. Rabbits "stall" (no horizontal movement) during jumps - due to this they just jump upwards in the same place when trying to climb a block.<br/>This behavior is caused by ``RabbitMoveControl`` which only sets the (horizontal) speed correctly during movement but not while jumping.
-3. Rabbits are stuck / try to wander around forever.
-   * The root cause is that ``EntityNavigation`` sets its timeouts based on movement speed.<br/>If the movement speed is 0 (this is the case when a rabbit/mob is "stuck"), the timeout is also 0... and if the timeout is 0 it's ignored and therefore it's executed forever (or until interrupted by something external like another goal).
-   * Rabbits only have a single goal when idle: ``WanderAround(Far)``. Most other entities also use ``LookAroundGoal``.<br/> Thus the above mentioned infinite navigation is never stopped in favor of executing another goal like in most other mobs.
-   * ``RabbitMoveControl#tick`` constantly updates the rabbits speed (``RabbitEntity#setSpeed``).<br/> While doing this it also indirectly executes ``moveControl#moveTo`` thus the rabbit always tries to reach it's last target even when it shouldn't do that.
+## Removing Platforms and Loaders
+While the MultiLoader Template includes support for many platforms and loaders you can easily remove support for the ones you don't need. This can be done by deleting the subproject folder and then removing it from the `settings.gradle` file. For example if you wanted to remove support for Forge you would follow the following steps. 
 
-<!-- modrinth_exclude.start -->
-> [!NOTE]<!-- modrinth_exclude.end -->
-> As of ``1.21.4/24w46a`` [MC-150224](https://bugs.mojang.com/browse/MC-150224) was fixed, correcting the jump height (1) and fixing the stall (2).<br/>
-> However all other parts - including optimizations and sanity checks in above mentioned fixes - are still missing.
-
-### Eating carrot crops
-1. Rabbits can't reach the crops and always stop one block short of them.<br/>This is due to selecting the incorrect distance from the crop block (it's ``1`` but should be ``0``).
-2. Rabbits eat the crop instantly even while still jumping and being in the air.
-3. The goal/behavior is immediately aborted (after a few ticks - when a target crop block was selected) due to incorrect implementation of ``shouldContinue`` and ``isTargetPos`` methods.
-
-
-Detailed [video comparisons](https://litetex-oss.github.io/mcm-rabbit-pathfinding-fix/assets/comparison) are also available.
+1. Delete the subproject folder. For example, delete `MultiLoader-Template/forge`.
+2. Remove the project from `settings.gradle`. For example, remove `include("forge")`. 
