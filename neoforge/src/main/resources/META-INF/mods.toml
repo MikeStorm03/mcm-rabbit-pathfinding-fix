@@ -1,7 +1,7 @@
 modLoader = "javafml" #mandatory
 loaderVersion = "${neoforge_loader_version_range}" #mandatory
 license = "${license}"
-issueTrackerURL="https://github.com/litetex-oss/mcm-${mod_id}/issues" #optional
+issueTrackerURL="https://github.com/MikeStorm03/mcm-rabbit-pathfinding-fix/issues" #optional
 [[mods]] #mandatory
 modId = "${mod_id}" #mandatory
 version = "${version}" #mandatory
@@ -16,14 +16,14 @@ description = '''${description}''' #mandatory (Supports multiline text)
 config = "${mod_id}.neoforge.mixins.json"
 [[dependencies.${mod_id}]] #optional
 modId = "neoforge" #mandatory
-type="required" #mandatory (Can be one of "required", "optional", "incompatible" or "discouraged")
+mandatory = true #mandatory
 versionRange = "[${neoforge_version},)" #mandatory
 ordering = "NONE" # The order that this dependency should load in relation to your mod, required to be either 'BEFORE' or 'AFTER' if the dependency is not mandatory
 side = "BOTH" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER'
 [[dependencies.${mod_id}]]
 modId = "minecraft"
-type="required" #mandatory (Can be one of "required", "optional", "incompatible" or "discouraged")
-versionRange = "[1.20.2, 1.21)"
+mandatory = true
+versionRange = "[1.20.2, 1.20.5)"
 ordering = "NONE"
 side = "BOTH"
 

@@ -2,6 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "net.litetex.rpf.mixin",
+  "refmap": "rabbit_pathfinding_fix.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "EntityNavigationMixin",
